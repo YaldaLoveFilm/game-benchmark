@@ -1,0 +1,327 @@
+{
+  "_schema_version": "2.0",
+  "_description": "Game database with disambiguation support. Each entry contains aliases, platform info, and per-platform search keywords to avoid ambiguity.",
+
+  "marathon_bungie": {
+    "canonical_name": "Marathon",
+    "aliases": [
+      "Marathon Bungie",
+      "Marathon 2025",
+      "Marathon PvP",
+      "Marathon extraction shooter",
+      "Marathon game"
+    ],
+    "developer": "Bungie",
+    "publisher": "Sony Interactive Entertainment",
+    "platforms": ["pc", "ps5", "xbox"],
+    "store_ids": {
+      "steam": 3065800
+    },
+    "genre": ["extraction-shooter", "fps", "pvp", "multiplayer"],
+    "release_status": "upcoming",
+    "release_year": 2026,
+    "disambiguation_hints": [
+      "NOT marathon running event",
+      "NOT marathon race",
+      "NOT fitness app",
+      "NOT 2026 LA Marathon"
+    ],
+    "social_search_keywords": {
+      "youtube": "Marathon Bungie game",
+      "twitter": "Marathon game Bungie",
+      "reddit": "r/MarathonTheGame",
+      "tiktok": "#marathongame Bungie",
+      "twitch": "Marathon"
+    },
+    "known_accounts": {
+      "twitter": ["@Marathon"],
+      "reddit": ["r/MarathonTheGame"],
+      "youtube": ["Marathon"]
+    }
+  },
+
+  "genshin_impact": {
+    "canonical_name": "Genshin Impact",
+    "aliases": [
+      "Genshin",
+      "原神",
+      "GI"
+    ],
+    "developer": "miHoYo",
+    "publisher": "HoYoverse",
+    "platforms": ["pc", "ps5", "ps4", "ios", "android"],
+    "store_ids": {
+      "steam": null,
+      "appstore": "1517783697",
+      "googleplay": "com.miHoYo.GenshinImpact"
+    },
+    "genre": ["action-rpg", "open-world", "gacha", "live-service"],
+    "release_status": "released",
+    "release_year": 2020,
+    "disambiguation_hints": [],
+    "social_search_keywords": {
+      "youtube": "Genshin Impact",
+      "twitter": "Genshin Impact",
+      "reddit": "r/Genshin_Impact",
+      "tiktok": "#genshinimpact",
+      "twitch": "Genshin Impact",
+      "taptap": "原神"
+    },
+    "known_accounts": {
+      "twitter": ["@GenshinImpact"],
+      "reddit": ["r/Genshin_Impact"],
+      "youtube": ["Genshin Impact"]
+    }
+  },
+
+  "counter_strike_2": {
+    "canonical_name": "Counter-Strike 2",
+    "aliases": [
+      "CS2",
+      "CSGO",
+      "Counter Strike 2",
+      "CS:GO 2"
+    ],
+    "developer": "Valve",
+    "publisher": "Valve",
+    "platforms": ["pc"],
+    "store_ids": {
+      "steam": 730
+    },
+    "genre": ["fps", "competitive", "tactical-shooter"],
+    "release_status": "released",
+    "release_year": 2023,
+    "disambiguation_hints": [],
+    "social_search_keywords": {
+      "youtube": "Counter-Strike 2",
+      "twitter": "CS2",
+      "reddit": "r/cs2",
+      "tiktok": "#cs2",
+      "twitch": "Counter-Strike 2"
+    },
+    "known_accounts": {
+      "twitter": ["@CounterStrike"],
+      "reddit": ["r/cs2", "r/GlobalOffensive"],
+      "youtube": ["Counter-Strike"]
+    }
+  },
+
+  "animal_crossing_nh": {
+    "canonical_name": "Animal Crossing: New Horizons",
+    "aliases": [
+      "Animal Crossing",
+      "ACNH",
+      "Animal Crossing New Horizons",
+      "动物森友会"
+    ],
+    "developer": "Nintendo EPD",
+    "publisher": "Nintendo",
+    "platforms": ["switch"],
+    "store_ids": {},
+    "genre": ["simulation", "social", "casual"],
+    "release_status": "released",
+    "release_year": 2020,
+    "disambiguation_hints": [],
+    "social_search_keywords": {
+      "youtube": "Animal Crossing New Horizons",
+      "twitter": "Animal Crossing New Horizons",
+      "reddit": "r/AnimalCrossing",
+      "tiktok": "#animalcrossing",
+      "twitch": "Animal Crossing: New Horizons"
+    },
+    "known_accounts": {
+      "twitter": ["@anaborsa"],
+      "reddit": ["r/AnimalCrossing"]
+    }
+  },
+
+  "control_remedy": {
+    "canonical_name": "Control",
+    "aliases": [
+      "Control Remedy",
+      "Control game",
+      "Control Ultimate Edition"
+    ],
+    "developer": "Remedy Entertainment",
+    "publisher": "505 Games",
+    "platforms": ["pc", "ps5", "ps4", "xbox"],
+    "store_ids": {
+      "steam": 870780
+    },
+    "genre": ["action-adventure", "third-person-shooter", "metroidvania"],
+    "release_status": "released",
+    "release_year": 2019,
+    "disambiguation_hints": [
+      "NOT remote control",
+      "NOT control systems engineering",
+      "NOT control panel software"
+    ],
+    "social_search_keywords": {
+      "youtube": "Control Remedy game",
+      "twitter": "Control game Remedy",
+      "reddit": "r/controlgame",
+      "tiktok": "#controlgame Remedy",
+      "twitch": "Control"
+    },
+    "known_accounts": {
+      "twitter": ["@ControlRemedy"],
+      "reddit": ["r/controlgame"]
+    }
+  },
+
+  "clash_royale": {
+    "canonical_name": "Clash Royale",
+    "aliases": [
+      "CR",
+      "皇室战争"
+    ],
+    "developer": "Supercell",
+    "publisher": "Supercell",
+    "platforms": ["ios", "android"],
+    "store_ids": {
+      "appstore": "1053012308",
+      "googleplay": "com.supercell.clashroyale"
+    },
+    "genre": ["strategy", "card-game", "tower-defense", "pvp"],
+    "release_status": "released",
+    "release_year": 2016,
+    "disambiguation_hints": [],
+    "social_search_keywords": {
+      "youtube": "Clash Royale",
+      "twitter": "Clash Royale",
+      "reddit": "r/ClashRoyale",
+      "tiktok": "#clashroyale",
+      "twitch": "Clash Royale"
+    },
+    "known_accounts": {
+      "twitter": ["@ClashRoyale"],
+      "reddit": ["r/ClashRoyale"]
+    }
+  },
+
+  "destiny_2": {
+    "canonical_name": "Destiny 2",
+    "aliases": [
+      "D2",
+      "Destiny2",
+      "命运2"
+    ],
+    "developer": "Bungie",
+    "publisher": "Bungie",
+    "platforms": ["pc", "ps5", "ps4", "xbox"],
+    "store_ids": {
+      "steam": 1085660
+    },
+    "genre": ["looter-shooter", "fps", "mmo", "live-service"],
+    "release_status": "released",
+    "release_year": 2017,
+    "disambiguation_hints": [
+      "NOT Destiny's Child",
+      "NOT destiny movie"
+    ],
+    "social_search_keywords": {
+      "youtube": "Destiny 2",
+      "twitter": "Destiny 2",
+      "reddit": "r/DestinyTheGame",
+      "tiktok": "#destiny2",
+      "twitch": "Destiny 2"
+    },
+    "known_accounts": {
+      "twitter": ["@DestinyTheGame"],
+      "reddit": ["r/DestinyTheGame", "r/destiny2"]
+    }
+  },
+
+  "elden_ring": {
+    "canonical_name": "Elden Ring",
+    "aliases": [
+      "EldenRing",
+      "艾尔登法环",
+      "Elden Ring Nightreign"
+    ],
+    "developer": "FromSoftware",
+    "publisher": "Bandai Namco Entertainment",
+    "platforms": ["pc", "ps5", "ps4", "xbox"],
+    "store_ids": {
+      "steam": 1245620
+    },
+    "genre": ["action-rpg", "open-world", "soulslike"],
+    "release_status": "released",
+    "release_year": 2022,
+    "disambiguation_hints": [],
+    "social_search_keywords": {
+      "youtube": "Elden Ring",
+      "twitter": "Elden Ring",
+      "reddit": "r/Eldenring",
+      "tiktok": "#eldenring",
+      "twitch": "Elden Ring"
+    },
+    "known_accounts": {
+      "twitter": ["@ELDENRING"],
+      "reddit": ["r/Eldenring"]
+    }
+  },
+
+  "honkai_star_rail": {
+    "canonical_name": "Honkai: Star Rail",
+    "aliases": [
+      "Star Rail",
+      "HSR",
+      "崩坏：星穹铁道",
+      "星铁"
+    ],
+    "developer": "miHoYo",
+    "publisher": "HoYoverse",
+    "platforms": ["pc", "ps5", "ios", "android"],
+    "store_ids": {
+      "appstore": "1599719154",
+      "googleplay": "com.HoYoverse.hkrpgoversea"
+    },
+    "genre": ["turn-based-rpg", "gacha", "live-service"],
+    "release_status": "released",
+    "release_year": 2023,
+    "disambiguation_hints": [],
+    "social_search_keywords": {
+      "youtube": "Honkai Star Rail",
+      "twitter": "Honkai Star Rail",
+      "reddit": "r/HonkaiStarRail",
+      "tiktok": "#honkaistarrail",
+      "twitch": "Honkai: Star Rail",
+      "taptap": "崩坏：星穹铁道"
+    },
+    "known_accounts": {
+      "twitter": ["@honaborsa"],
+      "reddit": ["r/HonkaiStarRail"]
+    }
+  },
+
+  "valorant": {
+    "canonical_name": "Valorant",
+    "aliases": [
+      "Val",
+      "无畏契约"
+    ],
+    "developer": "Riot Games",
+    "publisher": "Riot Games",
+    "platforms": ["pc", "ps5", "xbox"],
+    "store_ids": {},
+    "genre": ["fps", "tactical-shooter", "competitive"],
+    "release_status": "released",
+    "release_year": 2020,
+    "disambiguation_hints": [
+      "NOT valiant",
+      "NOT valorant definition"
+    ],
+    "social_search_keywords": {
+      "youtube": "Valorant",
+      "twitter": "Valorant",
+      "reddit": "r/VALORANT",
+      "tiktok": "#valorant",
+      "twitch": "VALORANT"
+    },
+    "known_accounts": {
+      "twitter": ["@VALORANT"],
+      "reddit": ["r/VALORANT"]
+    }
+  }
+}
