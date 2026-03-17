@@ -12,9 +12,9 @@ game_resolver.py — 游戏名称消歧 + 元数据补全模块
 
 用法：
     resolver = GameResolver("games_db.json")
-    profile = resolver.resolve("Marathon")
-    print(profile.canonical_name)   # "Marathon"
-    print(profile.developer)        # "Bungie"
+    profile = resolver.resolve("Genshin Impact")
+    print(profile.canonical_name)   # "Genshin Impact"
+    print(profile.developer)        # "miHoYo"
     print(profile.confidence)       # 1.0
 """
 
@@ -373,7 +373,7 @@ class GameResolver:
         # 都不是 → 手动输入模式
         print("\n请提供更多信息：")
         print("  格式: 游戏名 --developer 开发商")
-        print(f"  例如: Marathon --developer Bungie")
+        print(f"  例如: Heartopia --developer XD")
         try:
             manual = input("输入: ").strip()
         except (EOFError, KeyboardInterrupt):
@@ -480,12 +480,10 @@ if __name__ == "__main__":
     print(f"数据库中共 {resolver.get_game_count()} 款游戏\n")
 
     test_inputs = [
-        ("Marathon", ""),
-        ("marathon bungie", ""),
+        ("Heartopia", ""),
         ("CS2", ""),
         ("Genshin", ""),
-        ("Control", ""),
-        ("Control", "Remedy"),
+        ("Genshin Impact", "miHoYo"),
         ("Animal Crossing", ""),
         ("SomeRandomGame2026", ""),
         ("原神", ""),

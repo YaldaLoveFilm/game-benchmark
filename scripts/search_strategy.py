@@ -8,7 +8,7 @@ search_strategy.py — 安全搜索词构造模块
 用法：
     from search_strategy import build_search_queries
     queries = build_search_queries(profile)
-    # {'youtube': 'Marathon Bungie game', 'steam': None, ...}
+    # {'youtube': 'Genshin Impact miHoYo game', 'steam': None, ...}
 """
 
 from __future__ import annotations
@@ -185,13 +185,11 @@ if __name__ == "__main__":
         store_ids: dict = field(default_factory=dict)
 
     test_cases = [
-        MockProfile(canonical_name="Marathon", developer="Bungie", steam_id=3065800),
-        MockProfile(canonical_name="Control", developer="Remedy Entertainment", steam_id=870780),
         MockProfile(canonical_name="Genshin Impact", developer="miHoYo"),
         MockProfile(canonical_name="Counter-Strike 2", developer="Valve", steam_id=730),
         MockProfile(canonical_name="Clash Royale", developer="Supercell"),
-        MockProfile(canonical_name="Prey", developer="Arkane Studios", steam_id=480490),
-        MockProfile(canonical_name="Inside", developer="Playdead"),
+        MockProfile(canonical_name="Heartopia", developer="XD Entertainment"),
+        MockProfile(canonical_name="Control", developer="Remedy Entertainment", steam_id=870780),
     ]
 
     for p in test_cases:

@@ -7,19 +7,19 @@ quick_benchmark_v2.py — 重构后的快速启动入口
  
 用法：
   # 最简模式（自动消歧 + 智能路由）
-  python quick_benchmark_v2.py "Marathon"
+  python quick_benchmark_v2.py "Heartopia"
  
   # 带开发商提示（消除歧义）
-  python quick_benchmark_v2.py "Marathon" --developer Bungie
+  python quick_benchmark_v2.py "Heartopia" --developer XD
  
   # 手动指定参数（跳过自动推断）
-  python quick_benchmark_v2.py "Marathon" --steam-id 3065800 --platforms pc ps5 xbox
+  python quick_benchmark_v2.py "Genshin Impact" --steam-id 1971870 --platforms pc ios android
  
   # 强制模式（跳过确认直接运行）
-  python quick_benchmark_v2.py "Marathon" --force
+  python quick_benchmark_v2.py "Heartopia" --force
  
   # 只显示执行计划，不实际运行
-  python quick_benchmark_v2.py "Marathon" --dry-run
+  python quick_benchmark_v2.py "Counter-Strike 2" --dry-run
  
   # 查看数据库中所有已知游戏
   python quick_benchmark_v2.py --list-games
@@ -256,8 +256,8 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:
-  %(prog)s "Marathon"                        # 自动识别 + 智能路由
-  %(prog)s "Marathon" --developer Bungie     # 带开发商消歧
+  %(prog)s "Heartopia"                       # 自动识别 + 智能路由
+  %(prog)s "Heartopia" --developer XD        # 带开发商消歧
   %(prog)s "CS2" --dry-run                   # 只看计划不执行
   %(prog)s --list-games                      # 查看数据库
         """,

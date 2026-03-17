@@ -307,12 +307,12 @@ if __name__ == "__main__":
     resolver = GameResolver(db_path)
 
     test_games = [
-        "Marathon",
         "Counter-Strike 2",
         "Genshin Impact",
         "Clash Royale",
         "Animal Crossing",
         "Honkai: Star Rail",
+        "Heartopia",
     ]
 
     for name in test_games:

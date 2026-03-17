@@ -1,11 +1,7 @@
 """
 discover_accounts_v2.py — 社交账号发现（交叉验证版）
 
-改进原版 discover_accounts.py 的核心问题：
-原版直接信任 Tavily 搜索的第一个结果，
-导致 "Marathon" 搜出马拉松赛事账号。
-
-本版增加多信号交叉验证：
+多信号交叉验证，避免将非游戏账号误识别为官方账号：
 1. 名称匹配 — 账号名是否包含游戏名/开发商名
 2. 内容相关 — 账号内容是否包含游戏关键词
 3. 官方链接 — 账号是否链接到已知官方资源
@@ -58,13 +54,13 @@ GAME_CONTENT_SIGNALS = {
 }
 
 NON_GAME_SIGNALS = {
-    # Marathon 歧义
-    "marathon running", "5k", "10k", "half marathon", "finish line",
-    "personal best", "race day", "running shoes", "26.2 miles",
-    # Control 歧义
+    # 运动/体育类歧义词
+    "5k", "10k", "finish line", "personal best", "race day",
+    "running shoes", "26.2 miles",
+    # 工业/IT 类歧义词
     "remote control", "control systems", "access control",
     "control panel", "quality control",
-    # 通用非游戏
+    # 通用非游戏内容
     "fitness", "workout", "recipe", "cooking", "fashion",
 }
 
@@ -407,6 +403,6 @@ if __name__ == "__main__":
     print("  from game_resolver import GameResolver")
     print("  from discover_accounts_v2 import AccountDiscoverer")
     print("  resolver = GameResolver('games_db.json')")
-    print("  profile = resolver.resolve('Marathon')")
+    print("  profile = resolver.resolve('Heartopia')")
     print("  discoverer = AccountDiscoverer()")
     print("  accounts = discoverer.discover(profile)")
