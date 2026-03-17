@@ -1,87 +1,113 @@
-# Game Benchmark Skill - 问题分析
+# 🎮 Game Benchmark
 
-## 问题描述
+Multi-platform competitive game intelligence tool. Generates structured 13-chapter research briefs covering App Store, Google Play, Steam, YouTube, TikTok, Reddit, Twitter/X, Twitch, and TapTap.
 
-**Marathon 案例暴露的问题：**
+**Sample output:** [Heartopia 竞品简报](https://yaldalovefilm.github.io/game-benchmark-reports/Heartopia_brief_20260317.html)
 
-1. **名称歧义处理不当** - "Marathon" 既是游戏名又是马拉松赛事
-2. **平台自动发现失败** - 错误匹配到移动应用（Destiny 2 Companion, 2026 LA Marathon）
-3. **参数依赖过强** - 需要手动指定精确参数才能正确工作
+---
 
-## 代码结构
-
-```
-benchmark-skill/
-├── SKILL.md                    # 技能描述文件
-├── README.md                   # 本文件
-├── games_db.json              # 游戏数据库
-└── scripts/
-    ├── benchmark_all.py       # 主入口（19195 行）
-    ├── quick_benchmark.py     # 快速启动（依赖 games_db.json）
-    ├── discover_accounts.py   # 自动发现账号（9949 行）
-    ├── comment_keywords.py    # 评论分析（14054 行）
-    ├── creator_ecosystem.py   # 创作者生态（6535 行）
-    ├── steam_benchmark.py     # Steam 数据
-    ├── appstore_benchmark.py  # App Store 数据
-    ├── googleplay_benchmark.py # Google Play 数据
-    ├── youtube_benchmark.py   # YouTube 数据
-    ├── twitter_benchmark.py   # Twitter/X 数据
-    ├── reddit_benchmark.py    # Reddit 数据
-    ├── tiktok_benchmark.py    # TikTok 数据
-    ├── twitch_benchmark.py    # Twitch 数据
-    ├── taptap_benchmark.py    # TapTap 数据
-    └── intel/
-        ├── html_report.py     # HTML 报告生成
-        ├── publish.py         # GitHub Pages 发布
-        ├── top_videos.py      # 热门视频分析
-        ├── regional_distribution.py # 区域分布
-        └── __init__.py
-    └── social/
-        ├── social_accounts.py # 社交账号发现
-        └── __init__.py
-```
-
-## 关键问题文件
-
-### 1. `quick_benchmark.py` - 自动发现逻辑缺陷
-```python
-# 问题：依赖 games_db.json，当游戏不在数据库中时触发 --auto-discover
-# 自动发现使用简单关键词搜索，无法区分同名实体
-```
-
-### 2. `discover_accounts.py` - 搜索逻辑问题
-```python
-# 问题：使用 Tavily API 搜索，返回最相关结果但不一定是游戏
-# 无法过滤掉非游戏实体（如马拉松赛事、加油站应用等）
-```
-
-### 3. `benchmark_all.py` - 参数处理问题
-```python
-# 问题：需要太多手动参数
-# 应该能自动识别平台类型（PC/移动/主机）
-```
-
-## 复现问题的命令
+## Quick Start
 
 ```bash
-# 错误的方式（自动发现失败）
-python3 quick_benchmark.py "Marathon"
+# Install dependencies
+pip install -r requirements.txt
 
-# 正确的方式（需要手动指定参数）
-python3 benchmark_all.py --game "Marathon (Bungie 2026)" --steam-id 3065800 --youtube "Marathon Bungie"
+# Run benchmark for any game
+python scripts/quick_benchmark_v2.py "Heartopia"
+
+# With developer hint for disambiguation
+python scripts/quick_benchmark_v2.py "Heartopia" --developer XD
+
+# Preview execution plan without running
+python scripts/quick_benchmark_v2.py "Counter-Strike 2" --dry-run
+
+# List all games in local database
+python scripts/quick_benchmark_v2.py --list-games
 ```
 
-## 建议的改进
+---
 
-1. **游戏类型识别** - 根据关键词/数据库判断是 PC/移动/主机游戏
-2. **歧义检测** - 检测名称歧义并提示用户澄清
-3. **平台智能匹配** - 根据游戏类型自动选择正确的平台 API
-4. **失败回退机制** - 当自动发现失败时，提供手动参数选项
+## Output Structure (13 Chapters)
 
-## 依赖项
+Every report follows this standard structure:
 
-- `google-play-scraper` - Google Play 数据
-- `requests` - HTTP 请求
-- `youtube-data-api` - YouTube API
-- `tavily-python` - 网页搜索
-- `steam-web-api` - Steam API
+| # | Chapter | Data Sources |
+|---|---------|-------------|
+| ⚡ | **Key Conclusions (TL;DR)** — always first | Synthesized |
+| 1 | Game Info | Manual / Web |
+| 2 | Downloads & Platform Distribution | App Store, Google Play, SteamDB |
+| 3 | Regional User Distribution | App Store regional ratings (proxy) |
+| 4 | Official Social Accounts | Twitter, YouTube, TikTok, Discord, Reddit |
+| 5 | Media Coverage | Web search |
+| 6 | Recent LiveOps Updates | Patch notes, official channels |
+| 7 | YouTube Creator Ecosystem | YouTube Data API |
+| 8 | TikTok Content Ecosystem | TikTok / Douyin |
+| 9 | Top 5 Videos | YouTube Data API |
+| 10 | Community Sentiment | Reddit, Twitter, YouTube comments |
+| 11 | Core Player Profile | Synthesized |
+| 12 | Competitive Positioning | Synthesized |
+| 13 | Summary | Synthesized |
+
+> **Key rules baked in:**
+> - Key conclusions always come first (not last)
+> - Regional downloads always include estimated numbers (not just "high/medium/low")
+> - All links must be clickable
+> - Missing data is marked as `Estimated` or `No public data`, never skipped
+
+---
+
+## Project Structure
+
+```
+game-benchmark/
+├── SKILL.md                    # AI agent instructions
+├── PROMPT_TEMPLATE.md          # 13-chapter report template
+├── README.md                   # This file
+├── games_db.json               # Known games database
+├── requirements.txt
+└── scripts/
+    ├── quick_benchmark_v2.py   # Main entry point
+    ├── benchmark_all.py        # Full pipeline runner
+    ├── game_resolver.py        # Name disambiguation + metadata
+    ├── search_strategy.py      # Safe per-platform query generation
+    ├── platform_router.py      # Intelligent platform routing
+    ├── discover_accounts_v2.py # Cross-validated social account discovery
+    │
+    ├── appstore_benchmark.py   # App Store data
+    ├── googleplay_benchmark.py # Google Play data
+    ├── steam_benchmark.py      # Steam data
+    ├── youtube_benchmark.py    # YouTube data
+    ├── tiktok_benchmark.py     # TikTok data
+    ├── reddit_benchmark.py     # Reddit data
+    ├── twitter_benchmark.py    # Twitter/X data
+    ├── twitch_benchmark.py     # Twitch data
+    ├── taptap_benchmark.py     # TapTap data
+    │
+    └── intel/
+        ├── html_report.py      # Themed HTML report generator
+        ├── publish.py          # GitHub Pages auto-publish
+        ├── top_videos.py       # Popular video analysis
+        └── regional_distribution.py
+```
+
+---
+
+## Environment Variables
+
+```bash
+YOUTUBE_API_KEY=...       # YouTube Data API v3
+STEAM_API_KEY=...         # Steam Web API
+TAVILY_API_KEY=...        # Tavily search (web discovery)
+GITHUB_TOKEN=...          # GitHub Pages publishing (optional)
+```
+
+---
+
+## Dependencies
+
+```
+google-play-scraper   # Google Play data
+requests              # HTTP
+tavily-python         # Web search for auto-discovery
+app-store-scraper     # App Store data
+```
