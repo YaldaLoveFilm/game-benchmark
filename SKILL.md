@@ -13,6 +13,16 @@ description: >
 
 ## ⚠️ 输出规则（必须遵守）
 
+### 规则0：必须生成网页并发链接，不在对话中输出完整报告
+每次执行 benchmark，**必须**：
+1. 调用 `scripts/intel/html_report.py` 生成 HTML 文件，保存到 `reports/` 目录
+2. 调用 `scripts/intel/publish.py` 发布到 GitHub Pages
+3. 最终**只在对话中发送 GitHub Pages 链接**，不在 Telegram/对话中粘贴完整报告正文
+4. 可以附上3-5条关键结论作为摘要预告，但完整报告必须通过链接访问
+
+> ❌ 错误：把整份报告用 Markdown 粘贴到对话里
+> ✅ 正确：`报告已生成 ✅ https://yaldalovefilm.github.io/game-benchmark-reports/xxx.html`
+
 ### 规则1：关键结论必须前置
 每份简报的**第一个区块**必须是 `⚡ 关键结论（TL;DR）`，包含3-5条核心洞察。
 不允许把结论放在报告末尾。
@@ -78,16 +88,16 @@ generates a JSON summary report.
 
 ```bash
 # Simplest usage — auto-resolve and smart routing
-python scripts/quick_benchmark_v2.py "Marathon"
+python scripts/quick_benchmark_v2.py "Heartopia"
 
 # With developer hint for disambiguation
-python scripts/quick_benchmark_v2.py "Marathon" --developer Bungie
+python scripts/quick_benchmark_v2.py "Heartopia" --developer XD
 
 # Preview what would run without executing
 python scripts/quick_benchmark_v2.py "CS2" --dry-run
 
 # Manual override
-python scripts/quick_benchmark_v2.py "Marathon" --steam-id 3065800 --platforms pc ps5 xbox
+python scripts/quick_benchmark_v2.py "Genshin Impact" --steam-id 1971870 --platforms pc ios android
 
 # List all known games in database
 python scripts/quick_benchmark_v2.py --list-games
